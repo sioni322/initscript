@@ -2,13 +2,11 @@
 network:
   version: 2
   renderer: NetworkManager
-  ethernets: 
-
-#You can set up network status like this. Please move this yaml file into /etc/netplan/ and apply the setting.
-    #enp0s3:
-      #dhcp4: no
-      #dhcp6: no
-      #addresses: [xxx.xxx.xxx.xxx/xxx]
-      #gateway4: xxx.xxx.xxx.xxx
-      #nameservers:
-          #addresses: [1.1.1.1,8.8.8.8]
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      dhcp6: no
+      addresses: [192.168.56.222/24]
+      #gateway:
+      #nameserver:
+        #addresses: []
