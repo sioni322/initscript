@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
     centos7.vm.synced_folder ".", "/workspace"
     centos7.vm.hostname = "sion"
     centos7.vm.network "forwarded_port", guest: 8080, host: 8080
+    centos7.vm.network "forwarded_port", guest: 9000, host: 9000
     centos7.vm.network "private_network", ip: "192.168.33.10"
     centos7.vm.provider :virtualbox do |vb|
       vb.cpus = 2
@@ -25,7 +26,10 @@ Vagrant.configure("2") do |config|
     sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
     sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
     sudo yum install -y jenkins
+
+    sudo timedatectl set-timezone Asia/Seoul
     sudo firewall-cmd --zone=public --permanent --add-port=8080/tcp
+    sudo firewall-cmd --zone=public --permanent --add-port=9000/tcp
     sudo firewall-cmd --reload
     sudo systemctl start jenkins.service
     SHELL
