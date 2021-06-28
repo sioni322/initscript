@@ -4,7 +4,7 @@
 
 ## 1. 설치
 ```powershell
-git clone https://www.github.com/sioni322/init
+git clone https://www.github.com/sixxon/init
 ```  
 먼저, git clone을 통해 파일들을 다운로드 받습니다.  
 
